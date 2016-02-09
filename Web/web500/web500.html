@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Pair Chat!</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="web500.js"></script>
+	<style>
+		#send_message{
+			width:100px;
+			background-color:blue;
+			text-align:center;
+			color:white;
+			padding:10px 0;			
+		}
+		#send_message:hover {
+			cursor:pointer;
+			background-color:#0000ee;
+		}
+		#connect_with_pair{
+			cursor:pointer;
+			background-color:green;
+			text-align:center;
+			padding:10px 0;
+			width:100px;
+			color:white;
+		}
+		#connect_with_pair:hover {
+			background-color:#00dd00;
+
+		}
+		#message_body {
+			height:50px;
+			width:500px;
+		}
+		#conn_id {
+			display:inline-block;
+		}
+		#chat_pair_id {
+			display:inline-block;
+		}
+		#mess {
+			display:none;
+			width:500px;
+		}
+		.received_message {
+			font-size:13px;
+			width:300px;
+			padding:3px 3px;
+			border-radius:5px;
+			float:right;
+			background-color:blue;
+			color:white;
+			margin-bottom:10px;
+		}
+		.sent_message {
+			font-size:13px;
+			margin-bottom:10px;
+			width:300px;
+			padding:3px 3px;
+			border-radius:5px;
+			float:left;
+			background-color:green;
+			color:white;
+		}
+		#chat_with {
+			background-color:red;
+			color:white;
+			margin-bottom:10px;
+			text-align:center;
+		}
+		#error_div {
+			display:none;
+			background-color:red;
+			color:white;
+			width:500px;
+			font-size:15px;
+			padding:10px 10px;
+			margin-bottom:15px;
+		}
+	</style>
+</head>
+<body>
+Welcome to pair chat!<br/><br/>
+<div id="error_div">
+</div>
+<div id="conn">
+	Your ID: <div id="conn_id"></div><br/>
+	Pair ID: <input type="text" id="pair_id"/>
+	<div id="connect_with_pair">Pair!</div>
+</div>
+<div id="mess">
+	<div id="chat_with">Chat with <div id="chat_pair_id"></div></div>
+	<div id="messages"></div>
+	<textarea id="message_body"></textarea>
+	<div id="send_message">Send</div>
+</div>
+
+</body>
+</html>
