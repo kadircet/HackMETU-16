@@ -1,0 +1,47 @@
+0000000000400660 <__libc_start_main@plt>:
+  400660:	ff 25 da 05 20 00    	jmpq   *0x2005da(%rip)        # 600c40 <_GLOBAL_OFFSET_TABLE_+0x38>
+  400666:	68 04 00 00 00       	pushq  $0x4
+  40066b:	e9 a0 ff ff ff       	jmpq   400610 <_init+0x28>
+
+0000000000400670 <__gmon_start__@plt>:
+  400670:	ff 25 d2 05 20 00    	jmpq   *0x2005d2(%rip)        # 600c48 <_GLOBAL_OFFSET_TABLE_+0x40>
+  400676:	68 05 00 00 00       	pushq  $0x5
+  40067b:	e9 90 ff ff ff       	jmpq   400610 <_init+0x28>
+
+0000000000400680 <dlopen@plt>:
+--
+  4006c4:	e8 97 ff ff ff       	callq  400660 <__libc_start_main@plt>
+  4006c9:	f4                   	hlt    
+  4006ca:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+00000000004006d0 <deregister_tm_clones>:
+  4006d0:	b8 77 0c 60 00       	mov    $0x600c77,%eax
+  4006d5:	55                   	push   %rbp
+  4006d6:	48 2d 70 0c 60 00    	sub    $0x600c70,%rax
+  4006dc:	48 83 f8 0e          	cmp    $0xe,%rax
+  4006e0:	48 89 e5             	mov    %rsp,%rbp
+  4006e3:	76 1b                	jbe    400700 <deregister_tm_clones+0x30>
+--
+0000000000400796 <main>:
+  400796:	55                   	push   %rbp
+  400797:	48 89 e5             	mov    %rsp,%rbp
+  40079a:	48 83 ec 20          	sub    $0x20,%rsp
+  40079e:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  4007a5:	00 00 
+  4007a7:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  4007ab:	31 c0                	xor    %eax,%eax
+  4007ad:	be 01 00 00 00       	mov    $0x1,%esi
+  4007b2:	bf 00 00 00 00       	mov    $0x0,%edi
+  4007b7:	e8 c4 fe ff ff       	callq  400680 <dlopen@plt>
+--
+  400827:	74 05                	je     40082e <main+0x98>
+  400829:	e8 12 fe ff ff       	callq  400640 <__stack_chk_fail@plt>
+  40082e:	c9                   	leaveq 
+  40082f:	c3                   	retq   
+
+0000000000400830 <__libc_csu_init>:
+  400830:	41 57                	push   %r15
+  400832:	41 56                	push   %r14
+  400834:	41 89 ff             	mov    %edi,%r15d
+  400837:	41 55                	push   %r13
+  400839:	41 54                	push   %r12
